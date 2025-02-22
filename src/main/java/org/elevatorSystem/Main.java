@@ -9,16 +9,16 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        ElevatorSystem elevatorSystem = ElevatorSystem.getelevatorSystem();
-        Observer observer = new FloorObserver(elevatorSystem);
+        ElevatorManager elevatorManager = ElevatorManager.getelevatorSystem();
+        Observer observer = new FloorObserver(elevatorManager);
         int n = 5;
         List<FloorTerminal> floorTerminalList = new ArrayList<>();
         for(int i=0;i<n;i++){
             floorTerminalList.add(new FloorTerminal(i+1, observer));
         }
         ElevatorThreadPool elevatorThreadPool = new ElevatorThreadPool(2);
-        elevatorSystem.getElevatorList().add(new ElevatorImpl(n,1, elevatorThreadPool));
-        elevatorSystem.getElevatorList().add(new ElevatorImpl(n, 2, elevatorThreadPool));
+        elevatorManager.getElevatorList().add(new ElevatorImpl(n,1, elevatorThreadPool));
+        elevatorManager.getElevatorList().add(new ElevatorImpl(n, 2, elevatorThreadPool));
 
         floorTerminalList.get(4).getButtonList().get(0).press();//up
         floorTerminalList.get(2).getButtonList().get(1).press();//down

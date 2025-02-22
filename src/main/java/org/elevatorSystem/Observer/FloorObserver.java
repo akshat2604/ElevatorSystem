@@ -2,14 +2,14 @@ package org.elevatorSystem.Observer;
 
 import lombok.AllArgsConstructor;
 import org.elevatorSystem.Button.Button;
-import org.elevatorSystem.ElevatorSystem;
+import org.elevatorSystem.ElevatorManager;
 
 @AllArgsConstructor
 public class FloorObserver implements Observer {
-    ElevatorSystem elevatorSystem;
+    ElevatorManager elevatorManager;
 
     @Override
     public void addRequest(Button button) {
-        elevatorSystem.addRequest(button);
+        elevatorManager.addRequest(button);
     }
 }

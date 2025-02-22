@@ -1,7 +1,6 @@
 package org.elevatorSystem;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.elevatorSystem.Button.Button;
 import org.elevatorSystem.Button.FloorButton;
 import org.elevatorSystem.Elevator.Elevator;
@@ -11,20 +10,20 @@ import java.util.List;
 import java.util.Random;
 
 @Data
-public class ElevatorSystem {
-    private ElevatorSystem(){
+public class ElevatorManager {
+    private ElevatorManager(){
 
     };
-    public static ElevatorSystem elevatorSystem = null;
+    public static ElevatorManager elevatorManager = null;
 
-    public static ElevatorSystem getelevatorSystem(){
-        synchronized (ElevatorSystem.class){
-            if(elevatorSystem != null){
-                return elevatorSystem;
+    public static ElevatorManager getelevatorSystem(){
+        synchronized (ElevatorManager.class){
+            if(elevatorManager != null){
+                return elevatorManager;
             }
-            synchronized (ElevatorSystem.class){
-                elevatorSystem = new ElevatorSystem();
-                return elevatorSystem;
+            synchronized (ElevatorManager.class){
+                elevatorManager = new ElevatorManager();
+                return elevatorManager;
             }
         }
     }
