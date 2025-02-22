@@ -8,6 +8,7 @@ import org.elevatorSystem.Elevator.Elevator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Data
 public class ElevatorSystem {
@@ -30,7 +31,10 @@ public class ElevatorSystem {
     List<Elevator> elevatorList= new ArrayList<>();
 
     public synchronized void addRequest(Button button) {
-        //TODO: Find best elevator
-        elevatorList.getFirst().addFloor(((FloorButton)button).getFloorNo());
+        //TODO: Assign best lift
+        int n = elevatorList.size();
+        Random random = new Random();
+        int randomIndex = random.nextInt(n);
+        elevatorList.get(randomIndex).addFloor(((FloorButton)button).getFloorNo());
     }
 }

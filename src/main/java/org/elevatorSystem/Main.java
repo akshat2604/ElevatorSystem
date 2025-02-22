@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ElevatorSystem elevatorSystem = ElevatorSystem.getelevatorSystem();
         Observer observer = new FloorObserver(elevatorSystem);
         int n = 5;

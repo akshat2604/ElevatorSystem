@@ -52,7 +52,7 @@ public class ElevatorImpl implements Elevator, Runnable {
     }
 
     private void open() {
-        System.out.printf(String.format("opening doors for lift %d%n", elevatorNo));
+        System.out.printf(String.format("opening doors for lift %d at floor %d%n.", elevatorNo, currentFloor));
         try {
             lock.lock();
             Thread.sleep(2000);
@@ -113,8 +113,8 @@ public class ElevatorImpl implements Elevator, Runnable {
             }
 
             // Adjust direction after processing all requests
-            lock.lock();
             try {
+                lock.lock();
                 if (direction == Direction.UP && upQ.isEmpty()) {
                     direction = downQ.isEmpty() ? Direction.IDLE : Direction.DOWN;
                 } else if (direction == Direction.DOWN && downQ.isEmpty()) {
