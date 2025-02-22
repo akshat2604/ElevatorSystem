@@ -11,21 +11,13 @@ import java.util.Random;
 
 @Data
 public class ElevatorManager {
-    private ElevatorManager(){
+    private ElevatorManager(){};
+    public static class Holder{
+        public static final ElevatorManager INSTANCE = new ElevatorManager();
+    }
 
-    };
-    public static ElevatorManager elevatorManager = null;
-
-    public static ElevatorManager getelevatorSystem(){
-        synchronized (ElevatorManager.class){
-            if(elevatorManager != null){
-                return elevatorManager;
-            }
-            synchronized (ElevatorManager.class){
-                elevatorManager = new ElevatorManager();
-                return elevatorManager;
-            }
-        }
+    public static ElevatorManager getInstance(){
+        return Holder.INSTANCE;
     }
     List<Elevator> elevatorList= new ArrayList<>();
 

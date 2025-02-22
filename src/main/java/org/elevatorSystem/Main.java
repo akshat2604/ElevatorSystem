@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        ElevatorManager elevatorManager = ElevatorManager.getelevatorSystem();
+        ElevatorManager elevatorManager = ElevatorManager.getInstance();
         Observer observer = new FloorObserver(elevatorManager);
         int n = 5;
         List<FloorTerminal> floorTerminalList = new ArrayList<>();

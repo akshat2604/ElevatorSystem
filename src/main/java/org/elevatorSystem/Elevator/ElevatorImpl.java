@@ -72,10 +72,6 @@ public class ElevatorImpl implements Elevator, Runnable {
         System.out.printf(String.format("closing doors for lift %d%n", elevatorNo));
     }
 
-    private void handlePress(Integer floorNo) {
-        addFloor(floorNo);
-    }
-
     @Override
     public void run() {
         while (true) {
