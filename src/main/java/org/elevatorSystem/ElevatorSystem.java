@@ -6,12 +6,28 @@ import org.elevatorSystem.Button.Button;
 import org.elevatorSystem.Button.FloorButton;
 import org.elevatorSystem.Elevator.Elevator;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@NoArgsConstructor
 @Data
 public class ElevatorSystem {
-    List<Elevator> elevatorList;
+    private ElevatorSystem(){
+
+    };
+    public static ElevatorSystem elevatorSystem = null;
+
+    public static ElevatorSystem getelevatorSystem(){
+        synchronized (ElevatorSystem.class){
+            if(elevatorSystem != null){
+                return elevatorSystem;
+            }
+            synchronized (ElevatorSystem.class){
+                elevatorSystem = new ElevatorSystem();
+                return elevatorSystem;
+            }
+        }
+    }
+    List<Elevator> elevatorList= new ArrayList<>();
 
     public synchronized void addRequest(Button button) {
         //TODO: Find best elevator
