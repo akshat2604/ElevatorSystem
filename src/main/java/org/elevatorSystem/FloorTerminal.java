@@ -6,12 +6,13 @@ import org.elevatorSystem.Button.FloorButton;
 import org.elevatorSystem.Enums.Direction;
 import org.elevatorSystem.Observer.Observer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
 public class FloorTerminal {
     Integer floorNo;
-    List<Button> buttonList;
+    List<Button> buttonList = new ArrayList<>();
 
     public FloorTerminal(int floorNo, Observer observer){
         this.floorNo = floorNo;
