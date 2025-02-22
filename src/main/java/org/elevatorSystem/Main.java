@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        ElevatorSystem elevatorSystem = new ElevatorSystem();
+        ElevatorSystem elevatorSystem = ElevatorSystem.getelevatorSystem();
         Observer observer = new FloorObserver(elevatorSystem);
         int n = 5;
         List<FloorTerminal> floorTerminalList = new ArrayList<>();
